@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDapperEfCoreDemo", "WpfDapperEfCoreDemo.csproj", "{9AC2D908-F26A-4C2A-A42C-C8C184328F91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Debug|x64.Build.0 = Debug|Any CPU
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Release|x64.ActiveCfg = Release|Any CPU
+		{9AC2D908-F26A-4C2A-A42C-C8C184328F91}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {297BCFB5-CE2B-4D40-AD0C-3753749A7448}
+	EndGlobalSection
+EndGlobal
