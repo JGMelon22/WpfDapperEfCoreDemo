@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,6 +19,12 @@ public class PessoaRepository : IPessoaRepository
 		_dbConnection = dbConnection;
 		_dbContext = dbContext;
 	}
+
+	private static readonly Func<AppDbContext, IAsyncEnumerable<Pessoa>> AllPessoasAsync =
+		EF.CompileAsyncQuery(
+			(AppDbContext context) =>
+				context.Pessoas);
+
 	public async Task<List<PessoaToListViewModel>> GetPessoas()
 	{
 		var getPessoasQuery = @"SELECT PessoaId, 

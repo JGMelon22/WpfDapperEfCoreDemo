@@ -35,7 +35,8 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="button3" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,335,10,68" Cursor="Hand" TabIndex="3" Click="button3_Click">
+
+        <Button x:Name="button3" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,335,10,68" Cursor="Hand" TabIndex="4" Click="button3_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>
