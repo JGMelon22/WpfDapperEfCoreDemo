@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using System.Data;
 using System.IO;
 using System.Windows;
+using WpfDapperEfCoreDemo.Data;
 using WpfDapperEfCoreDemo.Interfaces;
 using WpfDapperEfCoreDemo.Repositories;
 
@@ -26,6 +27,7 @@ public partial class App : Application
 			{
 				services.AddSingleton<MainWindow>();
 				services.AddSingleton<IPessoaRepository, PessoaRepository>();
+				services.AddDbContext<AppDbContext>(options => options.UseSqlServer(hostContext.Configuration.GetConnectionString("Default")));
 				services.AddScoped<IDbConnection>((x) => new SqlConnection(hostContext.Configuration.GetConnectionString("Default")));
 			})
 			.Build();

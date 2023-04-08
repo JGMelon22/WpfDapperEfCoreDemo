@@ -37,6 +37,25 @@ public partial class MainWindow : Window
 		button1.IsEnabled = true;
 	}
 
+	private async void button2_Click(object sender, RoutedEventArgs e)
+	{
+		button2.IsEnabled = false;
+
+		Mouse.OverrideCursor = Cursors.Wait;
+
+		listBox1.Items.Clear();
+
+		var pessoas = await _pessoaRepository.GetPessoasEfCore();
+
+		foreach (var pessoa in pessoas)
+			listBox1.Items.Add(pessoa.PessoaId + " - " + pessoa.Nome);
+
+		Mouse.OverrideCursor = null;
+
+		button2.IsEnabled = true;
+	}
+
+
 	private void button3_Click(object sender, RoutedEventArgs e)
 	{
 		button3.IsEnabled = false;
