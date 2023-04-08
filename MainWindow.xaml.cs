@@ -1,6 +1,9 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System;
+using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Interop;
 using WpfDapperEfCoreDemo.Interfaces;
 
 namespace WpfDapperEfCoreDemo;
@@ -8,10 +11,24 @@ namespace WpfDapperEfCoreDemo;
 public partial class MainWindow : Window
 {
 	private readonly IPessoaRepository _pessoaRepository;
+
+	[DllImport("DwmApi")]
+	private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 	public MainWindow(IPessoaRepository pessoaRepository)
 	{
 		InitializeComponent();
 		_pessoaRepository = pessoaRepository;
+	}
+
+	// Dark upper tab
+	private void Window_SourceInitialized(object sender, EventArgs e)
+	{
+		// Get the window handle
+		IntPtr handle = new WindowInteropHelper(this).Handle;
+
+		// Set the DWM window attribute
+		if (DwmSetWindowAttribute(handle, 19, new[] { 1 }, 4) != 0)
+			DwmSetWindowAttribute(handle, 20, new[] { 1 }, 4);
 	}
 
 	private void Window_Initialized(object sender, System.EventArgs e)

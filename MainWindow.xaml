@@ -4,13 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Background="#282a36" Height="500" Width="800"
+        Title="MainWindow" Background="#282a36" Height="447" Width="800"
         ResizeMode="CanMinimize"
-        Initialized="Window_Initialized">
+        Initialized="Window_Initialized"
+        SourceInitialized="Window_SourceInitialized"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#282a36" Height="500" Width="800">
-        <ListBox x:Name="listBox1" Width="700" FontFamily="Segoe UI" FontSize="18" Margin="50,35,50,95" Background="#44475a" Foreground="#f8f8f2" BorderBrush="#f8f8f2" BorderThickness="1.5" TabIndex="0"/>
-        <Button x:Name="button1" ToolTip="List People Dapper" Content="Pessoas Dapper" FontFamily="Segoe UI" FontSize="15" Width="115" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="-530,35,50,-340" Cursor="Hand" TabIndex="1" Click="button1_Click"></Button>
-        <Button x:Name="button2" ToolTip="List People EF Core" Content="Pessoas EF Core" FontFamily="Segoe UI" FontSize="15" Width="120" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="-270,35,50,-340" Cursor="Hand" TabIndex="2" Click="button2_Click"></Button>
-        <Button x:Name="button3" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,410,50,34" Cursor="Hand" TabIndex="3" Click="button3_Click"></Button>
+        <ListBox x:Name="listBox1" Height="314" FontFamily="Segoe UI" FontSize="18" Margin="15,10,25,123" Background="#44475a" Foreground="#f8f8f2" BorderBrush="#f8f8f2" BorderThickness="1.5" TabIndex="0">
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"></Setter>
+                </Style>
+            </ListBox.Resources>
+        </ListBox>
+
+
+        <Button x:Name="button1" ToolTip="List People Dapper" Content="Pessoas Dapper" FontFamily="Segoe UI" FontSize="15" Width="115" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="15,335,670,68" Cursor="Hand" TabIndex="1" Click="button1_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="button2" ToolTip="List People EF Core" Content="Pessoas EF Core" FontFamily="Segoe UI" FontSize="15" Width="120" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="150,335,530,68" Cursor="Hand" TabIndex="2" Click="button2_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="button3" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,335,10,68" Cursor="Hand" TabIndex="3" Click="button3_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
