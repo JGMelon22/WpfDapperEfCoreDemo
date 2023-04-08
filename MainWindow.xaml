@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Background="#282a36" Height="500" Width="800"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize"
+        Initialized="Window_Initialized">
     <Grid Background="#282a36" Height="500" Width="800">
         <ListBox x:Name="listBox1" Width="700" FontFamily="Segoe UI" FontSize="18" Margin="50,35,50,95" Background="#44475a" Foreground="#f8f8f2" BorderBrush="#f8f8f2" BorderThickness="1.5" TabIndex="0"/>
-        <Button x:Name="button1" Content="Pessoas Dapper" FontFamily="Segoe UI" FontSize="15" Width="115" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="-530,35,50,-340" Cursor="Hand" TabIndex="1" Click="button1_Click"></Button>
-        <Button x:Name="button2" Content="Pessoas EF Core" FontFamily="Segoe UI" FontSize="15" Width="120" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="-270,35,50,-340" Cursor="Hand" TabIndex="2"></Button>
-        <Button x:Name="button3" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,410,50,34" Cursor="Hand" TabIndex="3"></Button>
+        <Button x:Name="button1" ToolTip="List People Dapper" Content="Pessoas Dapper" FontFamily="Segoe UI" FontSize="15" Width="115" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="-530,35,50,-340" Cursor="Hand" TabIndex="1" Click="button1_Click"></Button>
+        <Button x:Name="button2" ToolTip="List People EF Core" Content="Pessoas EF Core" FontFamily="Segoe UI" FontSize="15" Width="120" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="-270,35,50,-340" Cursor="Hand" TabIndex="2"></Button>
+        <Button x:Name="button3" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,410,50,34" Cursor="Hand" TabIndex="3" Click="button3_Click"></Button>
     </Grid>
 </Window>

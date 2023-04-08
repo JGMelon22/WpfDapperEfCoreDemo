@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using WpfDapperEfCoreDemo.Interfaces;
 
@@ -11,6 +12,11 @@ public partial class MainWindow : Window
 	{
 		InitializeComponent();
 		_pessoaRepository = pessoaRepository;
+	}
+
+	private void Window_Initialized(object sender, System.EventArgs e)
+	{
+		listBox1.Items.Clear();
 	}
 
 	private async void button1_Click(object sender, RoutedEventArgs e)
@@ -26,8 +32,21 @@ public partial class MainWindow : Window
 		foreach (var pessoa in pessoas)
 			listBox1.Items.Add(pessoa.PessoaId + " - " + pessoa.Nome);
 
-		Mouse.OverrideCursor = Cursors.No;
+		Mouse.OverrideCursor = null;
 
 		button1.IsEnabled = true;
+	}
+
+	private void button3_Click(object sender, RoutedEventArgs e)
+	{
+		button3.IsEnabled = false;
+
+		Mouse.OverrideCursor = Cursors.Wait;
+
+		listBox1.Items.Clear();
+
+		Mouse.OverrideCursor = null;
+
+		button3.IsEnabled = true;
 	}
 }
