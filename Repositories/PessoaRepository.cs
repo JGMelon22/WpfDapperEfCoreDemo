@@ -62,9 +62,15 @@ public class PessoaRepository : IPessoaRepository
 		EF.CompileQuery((AppDbContext context) =>
 			context.Pessoas.ToList());
 
-	public async Task<List<Pessoa>> GetPessoasCompiledQuery()
+	public async Task<List<PessoaToListViewModel>> GetPessoasCompiledQuery()
 	{
-		return await Task.Run(() => AllPessoasCompiled(_dbContext));
-	}
+		var pessoasMapped = AllPessoasCompiled(_dbContext)
+				.Select(x => new PessoaToListViewModel()
+				{
+					PessoaId = x.PessoaId,
+					Nome = x.Nome
+				}).ToList();
 
+		return await Task.FromResult(pessoasMapped);
+	}
 }
