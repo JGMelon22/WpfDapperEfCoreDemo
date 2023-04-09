@@ -56,4 +56,15 @@ public class PessoaRepository : IPessoaRepository
 
 		return pessoasViewModel;
 	}
+
+	// Compiled Query
+	private static readonly Func<AppDbContext, List<Pessoa>> AllPessoasCompiled =
+		EF.CompileQuery((AppDbContext context) =>
+			context.Pessoas.ToList());
+
+	public async Task<List<Pessoa>> GetPessoasCompiledQuery()
+	{
+		return await Task.Run(() => AllPessoasCompiled(_dbContext));
+	}
+
 }

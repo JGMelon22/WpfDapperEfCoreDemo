@@ -35,8 +35,15 @@
             </Button.Resources>
         </Button>
 
+        <Button x:Name="button4" ToolTip="Compiled Query" Content="Compiled Query" FontFamily="Segoe UI" FontSize="15" Height="40" Foreground="#FFFFFF" Background="#FF79C6" BorderThickness="1" BorderBrush="#FF79C6" Margin="290,364,384,96" Cursor="Hand" TabIndex="4" Click="button4_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
 
-        <Button x:Name="button3" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,335,10,68" Cursor="Hand" TabIndex="4" Click="button3_Click">
+        <Button x:Name="button3" ToolTip="Clear" Content="Clear" FontFamily="Segoe UI" FontSize="15" Width="85" Height="40" Foreground="#FFFFFF" Background="#50fa7b" BorderThickness="1" BorderBrush="#50fa7b" Margin="665,335,10,68" Cursor="Hand" TabIndex="4" Click="button3_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>
