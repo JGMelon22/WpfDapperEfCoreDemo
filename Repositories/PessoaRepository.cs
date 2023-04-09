@@ -20,11 +20,6 @@ public class PessoaRepository : IPessoaRepository
 		_dbContext = dbContext;
 	}
 
-	private static readonly Func<AppDbContext, IAsyncEnumerable<Pessoa>> AllPessoasAsync =
-		EF.CompileAsyncQuery(
-			(AppDbContext context) =>
-				context.Pessoas);
-
 	public async Task<List<PessoaToListViewModel>> GetPessoas()
 	{
 		var getPessoasQuery = @"SELECT PessoaId, 
@@ -58,19 +53,24 @@ public class PessoaRepository : IPessoaRepository
 	}
 
 	// Compiled Query
-	private static readonly Func<AppDbContext, List<Pessoa>> AllPessoasCompiled =
-		EF.CompileQuery((AppDbContext context) =>
-			context.Pessoas.ToList());
+	private static readonly Func<AppDbContext, IAsyncEnumerable<Pessoa>> AllPessoasCompiled =
+		EF.CompileAsyncQuery((AppDbContext context) =>
+			context.Pessoas);
 
 	public async Task<List<PessoaToListViewModel>> GetPessoasCompiledQuery()
 	{
-		var pessoasMapped = AllPessoasCompiled(_dbContext)
-				.Select(x => new PessoaToListViewModel()
-				{
-					PessoaId = x.PessoaId,
-					Nome = x.Nome
-				}).ToList();
+		var result = new List<PessoaToListViewModel>();
 
-		return await Task.FromResult(pessoasMapped);
+		await foreach (var pessoa in AllPessoasCompiled(_dbContext))
+		{
+			var viewModel = new PessoaToListViewModel
+			{
+				PessoaId = pessoa.PessoaId,
+				Nome = pessoa.Nome
+			};
+			result.Add(viewModel);
+		}
+
+		return result;
 	}
 }
