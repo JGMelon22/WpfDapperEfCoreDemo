@@ -40,18 +40,6 @@ public class PessoaRepository : IPessoaRepository
 		return mappedResult;
 	}
 
-	public async Task<List<PessoaToListViewModel>> GetPessoasEfCore()
-	{
-		var pessoas = await _dbContext.Pessoas.AsNoTracking().ToListAsync();
-		var pessoasViewModel = pessoas.Select(x => new PessoaToListViewModel()
-		{
-			PessoaId = x.PessoaId,
-			Nome = x.Nome
-		}).ToList();
-
-		return pessoasViewModel;
-	}
-
 	// Compiled Query
 	private static readonly Func<AppDbContext, IAsyncEnumerable<Pessoa>> AllPessoasCompiled =
 		EF.CompileAsyncQuery((AppDbContext context) =>
@@ -72,5 +60,42 @@ public class PessoaRepository : IPessoaRepository
 		}
 
 		return result;
+	}
+
+	public async Task<List<PessoaToListViewModel>> GetPessoasEfCore()
+	{
+		var pessoas = await _dbContext.Pessoas.AsNoTracking().ToListAsync();
+		var pessoasViewModel = pessoas.Select(x => new PessoaToListViewModel()
+		{
+			PessoaId = x.PessoaId,
+			Nome = x.Nome
+		}).ToList();
+
+		return pessoasViewModel;
+	}
+
+	public async Task<IEnumerable<PessoaTelefoneDetalheToListViewModel>> GetPessoasJoinEfCore()
+	{
+		var pessoasDetalhesTelefones = await (from p in _dbContext.Pessoas
+											  join d in _dbContext.Detalhes on p.PessoaId equals d.PessoaId
+											  join t in _dbContext.Telefones on p.PessoaId equals t.PessoaId
+											  select new PessoaTelefoneDetalheToListViewModel()
+											  {
+												  PessoaId = p.PessoaId,
+												  Nome = p.Nome,
+												  TelefoneTexto = t.TelefoneTexto,
+												  Ativo = t.Ativo,
+												  DetalheTexto = d.DetalheTexto
+											  })
+									.Select(x => new PessoaTelefoneDetalheToListViewModel()
+									{
+										PessoaId = x.PessoaId,
+										Nome = x.Nome,
+										TelefoneTexto = x.TelefoneTexto,
+										Ativo = x.Ativo,
+										DetalheTexto = x.DetalheTexto
+									}).Take(500).AsNoTracking().ToListAsync();
+
+		return pessoasDetalhesTelefones;
 	}
 }

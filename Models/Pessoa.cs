@@ -6,6 +6,6 @@ public class Pessoa
 {
 	public int PessoaId { get; set; }
 	public string Nome { get; set; } = string.Empty!;
-	List<Telefone> Telefones { get; set; }
-	List<Detalhe> Detalhes { get; set; }
+	public List<Telefone>? Telefones { get; set; }
+	public List<Detalhe>? Detalhes { get; set; }
 }
