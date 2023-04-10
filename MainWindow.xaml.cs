@@ -103,4 +103,14 @@ public partial class MainWindow : Window
 		button4.IsEnabled = true;
 
 	}
+
+	private void button5_Click(object sender, RoutedEventArgs e)
+	{
+
+    }
+
+	private void button6_Click(object sender, RoutedEventArgs e)
+	{
+
+    }
 }

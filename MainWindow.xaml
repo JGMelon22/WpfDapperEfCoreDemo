@@ -27,7 +27,7 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="button2" ToolTip="List People EF Core" Content="Pessoas EF Core" FontFamily="Segoe UI" FontSize="15" Width="120" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="150,335,530,68" Cursor="Hand" TabIndex="2" Click="button2_Click">
+        <Button x:Name="button2" ToolTip="List People EF Core" Content="Pessoas EF Core" FontFamily="Segoe UI" FontSize="15" Width="120" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="125,335,530,68" Cursor="Hand" TabIndex="2" Click="button2_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>
@@ -35,7 +35,23 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="button4" ToolTip="Compiled Query" Content="Compiled Query" FontFamily="Segoe UI" FontSize="15" Height="40" Foreground="#FFFFFF" Background="#FF79C6" BorderThickness="1" BorderBrush="#FF79C6" Margin="290,364,384,96" Cursor="Hand" TabIndex="4" Click="button4_Click">
+        <Button x:Name="button5" ToolTip="List People Join EF Core" Content="Pessoas Join EF" FontFamily="Segoe UI" FontSize="15" Width="120" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="262,364,418,96" Cursor="Hand" TabIndex="5" Click="button5_Click"   >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="button6" ToolTip="List People Join Dapper" Content="Pessoas Join Dapper" FontFamily="Segoe UI" FontSize="15" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="387,364,267,96" Cursor="Hand" TabIndex="1" Click="button6_Click" Width="NaN">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="button4" ToolTip="Compiled Query" Content="Compiled Query" FontFamily="Segoe UI" FontSize="15" Height="40" Foreground="#FFFFFF" Background="#FF79C6" BorderThickness="1" BorderBrush="#FF79C6" Margin="566,364,120,96" Cursor="Hand" TabIndex="4" Click="button4_Click" Width="NaN">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>

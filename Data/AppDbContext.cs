@@ -10,4 +10,6 @@ public class AppDbContext : DbContext
 	}
 
 	public DbSet<Pessoa> Pessoas { get; set; }
+	public DbSet<Telefone> Telefones { get; set; }
+	public DbSet<Detalhe> Detalhes { get; set; }
 }
