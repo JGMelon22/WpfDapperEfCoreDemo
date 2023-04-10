@@ -43,7 +43,7 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="button6" Visibility="Hidden" ToolTip="List People Join Dapper" Content="Pessoas Join Dapper" FontFamily="Segoe UI" FontSize="15" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="387,364,267,96" Cursor="Hand" TabIndex="1" Click="button6_Click" Width="NaN">
+        <Button x:Name="button6" ToolTip="List People Join Dapper" Content="Pessoas Join Dapper" FontFamily="Segoe UI" FontSize="15" Height="40" Foreground="#f8f8f2" Background="#ff79c6" BorderThickness="1" BorderBrush="#ff79c6" Margin="387,364,267,96" Cursor="Hand" TabIndex="1" Click="button6_Click" Width="NaN">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>

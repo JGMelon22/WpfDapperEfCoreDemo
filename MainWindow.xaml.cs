@@ -106,7 +106,6 @@ public partial class MainWindow : Window
 
 	private async void button5_Click(object sender, RoutedEventArgs e)
 	{
-
 		button5.IsEnabled = false;
 
 		Mouse.OverrideCursor = Cursors.Wait;
@@ -123,8 +122,22 @@ public partial class MainWindow : Window
 		button5.IsEnabled = true;
 	}
 
-	private void button6_Click(object sender, RoutedEventArgs e)
+	private async void button6_Click(object sender, RoutedEventArgs e)
 	{
-		// TODO
+
+		button6.IsEnabled = false;
+
+		Mouse.OverrideCursor = Cursors.Wait;
+
+		listBox1.Items.Clear();
+
+		var pessoas = await _pessoaRepository.GetPessoasJoinDapper();
+
+		foreach (var pessoa in pessoas)
+			listBox1.Items.Add(pessoa.PessoaId + " - " + pessoa.Nome);
+
+		Mouse.OverrideCursor = null;
+
+		button6.IsEnabled = true;
 	}
 }

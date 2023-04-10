@@ -98,4 +98,63 @@ public class PessoaRepository : IPessoaRepository
 
 		return pessoasDetalhesTelefones;
 	}
+
+	public async Task<List<PessoaTelefoneDetalheToListViewModel>> GetPessoasJoinDapper()
+	{
+		#region
+		// Ordinary dapper join method
+		var getPessoasTelefonesQuery = @"SELECT TOP 500 p.PessoaId,
+										 		        p.Nome,
+										 		        t.TelefoneId,
+										 		        t.TelefoneTexto,
+										 		        t.PessoaId,
+										 		        t.Ativo,
+														d.DetalheId,
+										 			    d.DetalheTexto
+										 FROM Pessoas p
+										 INNER JOIN Telefones t
+										 	ON p.PessoaId = t.PessoaId
+										 INNER JOIN Detalhes d
+										 	ON p.PessoaId = d.PessoaId
+										 ORDER BY p.PessoaId ASC;";
+
+		_dbConnection.Open();
+
+		var pessoas = await _dbConnection.QueryAsync<Pessoa, Telefone, Detalhe, Pessoa>(getPessoasTelefonesQuery, (pessoa, telefone, detalhe) =>
+		{
+			// Verifica se o Objeto telefone foi inicializado, se não, inicia
+			if (pessoa.Telefones == null)
+			{
+				pessoa.Telefones = new List<Telefone>();
+			}
+
+			if (pessoa.Detalhes == null)
+			{
+				pessoa.Detalhes = new List<Detalhe>();
+			}
+
+			pessoa.Telefones.Add(telefone);
+			pessoa.Detalhes.Add(detalhe);
+			return pessoa;
+		},
+
+		splitOn: "TelefoneId, DetalheId");
+		// Till here, than we map :D
+		#endregion
+		var result = pessoas.Select(x => new PessoaTelefoneDetalheToListViewModel()
+		{
+			PessoaId = x.PessoaId,
+			Nome = x.Nome,
+			TelefoneTexto = x.Telefones.Select(x => x.TelefoneTexto).FirstOrDefault(),
+			Ativo = x.Telefones.Select(x => x.Ativo).FirstOrDefault(),
+			DetalheTexto = x.Detalhes.Select(x => x.DetalheTexto).FirstOrDefault(),
+			IdDetalhe = x.Detalhes.Select(x => x.IdDetalhe).FirstOrDefault(),
+			IdTelefone = x.Telefones.Select(x => x.IdTelefone).FirstOrDefault()
+		}).ToList();
+
+		_dbConnection.Close();
+
+		return result;
+
+	}
 }
