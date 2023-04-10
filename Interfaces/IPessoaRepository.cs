@@ -7,6 +7,8 @@ namespace WpfDapperEfCoreDemo.Interfaces;
 public interface IPessoaRepository
 {
 	Task<List<PessoaToListViewModel>> GetPessoas();
+	Task<List<PessoaToListViewModel>> GetPessoasJoinDapper();
+	Task<List<PessoaToListViewModel>> GetPessoasJoinEfCore();
 	Task<List<PessoaToListViewModel>> GetPessoasEfCore();
 	Task<List<PessoaToListViewModel>> GetPessoasCompiledQuery();
 }

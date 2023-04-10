@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Printing.IndexedProperties;
-
-namespace WpfDapperEfCoreDemo.Models;
+﻿namespace WpfDapperEfCoreDemo.Models;
 
 public class Telefone
 {
